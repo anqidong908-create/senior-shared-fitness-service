@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.sqlite3
+*.py[cod]
+.env
+server.*.log
+server.latest.*
+*.err
+.pytest_cache/
+output/
