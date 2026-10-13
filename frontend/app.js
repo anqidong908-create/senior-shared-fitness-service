@@ -170,7 +170,7 @@ function showToast(message) {
   showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 2600);
 }
 
-function setConnection(healthy, model = "qwen2.5:1.5b", mode = "simulator") {
+function setConnection(healthy, model = "deepseek-r1:8b", mode = "simulator") {
   statusNode.classList.toggle("is-error", healthy === false);
   $("#status-label").textContent = healthy === null ? "检查服务中..." : healthy ? "服务在线" : "服务不可用";
   $("#model-name").textContent = `${model} / ${mode}`;

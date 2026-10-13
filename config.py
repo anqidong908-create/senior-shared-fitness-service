@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:1.5b")
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "deepseek-r1:8b")
 OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", "180"))
 OLLAMA_RETRIES = int(os.getenv("OLLAMA_RETRIES", "2"))
 MAX_HISTORY_MESSAGES = int(os.getenv("MAX_HISTORY_MESSAGES", "8"))

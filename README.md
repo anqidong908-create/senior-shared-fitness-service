@@ -1,10 +1,10 @@
 # Senior Shared - Time-Sensitive Fitness Service Platform
 
-An AI multi-agent prototype for time-sensitive sharing of community fitness resources, designed with older adults in mind. Built with LangGraph, FastAPI, and a locally hosted Ollama model, it demonstrates safe resource discovery, equipment status checks, reservation confirmation, companion matching, and human handoff for high-risk situations. Facility and booking data are simulated; the project is a runnable prototype and is not connected to real gym hardware or production services.
+An AI multi-agent prototype for time-sensitive sharing of community fitness resources, designed with older adults in mind. Built with LangGraph, FastAPI, and a locally hosted DeepSeek model through Ollama, it demonstrates safe resource discovery, equipment status checks, reservation confirmation, companion matching, and human handoff for high-risk situations. Facility and booking data are simulated; the project is a runnable prototype and is not connected to real gym hardware or production services.
 
-这是一个面向社区老年用户错时共享运动场景的 AI Multi-Agent 产品原型，使用 LangGraph、FastAPI 和本地 Ollama 模型，演示共享运动资源推荐、设备状态查询、预约确认、同伴匹配及高风险请求人工接管。场馆、设备和预约数据均为演示模拟数据；项目可本地运行，但尚未接入真实场馆硬件或生产服务。
+这是一个面向社区老年用户错时共享运动场景的 AI Multi-Agent 产品原型，使用 LangGraph、FastAPI 和通过 Ollama 本地运行的 DeepSeek 模型，演示共享运动资源推荐、设备状态查询、预约确认、同伴匹配及高风险请求人工接管。场馆、设备和预约数据均为演示模拟数据；项目可本地运行，但尚未接入真实场馆硬件或生产服务。
 
-这是一个面向社区老年用户共享运动场景的 AI Agent 产品原型。它使用 LangGraph 编排路由、任务规划、上下文、风险、领域执行、冲突解决、人工接管和回复 Agent，底层模型使用本机 Ollama 的 `qwen2.5:1.5b`。
+这是一个面向社区老年用户共享运动场景的 AI Agent 产品原型。它使用 LangGraph 编排路由、任务规划、上下文、风险、领域执行、冲突解决、人工接管和回复 Agent，底层模型通过本机 Ollama 运行，默认使用 `deepseek-r1:8b`；可通过 `OLLAMA_MODEL` 更换为已安装的 DeepSeek 模型标签。
 
 本项目当前是**可运行的产品原型**，设备数据和预约数据默认保存在进程内，是为了展示产品流程和 Agent 编排，不代表已经接入真实场馆硬件。所有设备结果会标注“本地设备模拟器”，避免把演示数据误认为线上实时数据。
 
@@ -45,14 +45,14 @@ Browser
 
 1. Python 3.10 或更高版本。
 2. 已安装并启动 Ollama：`http://localhost:11434`。
-3. 已下载模型：`ollama pull qwen2.5:1.5b`。
+3. 默认模型安装命令：`ollama pull deepseek-r1:8b`（也可在 `.env` 中设置 `OLLAMA_MODEL` 为其他已安装的 DeepSeek 标签）。
 
 本地 Demo 会通过 `/auth/demo-token` 获取签名令牌。默认 Demo 登录密钥为 `local-demo-login`，仅用于本机演示；对外部署前必须替换 `AUTH_SECRET` 和 `DEMO_LOGIN_KEY`，并接入正式身份系统。
 
 检查模型：
 
 ```powershell
-Invoke-RestMethod http://localhost:11434/api/tags
+ollama list
 ```
 
 ## 安装与启动

@@ -22,7 +22,7 @@ def main() -> None:
     health = requests.get(f"{BASE_URL}/health", timeout=20)
     health.raise_for_status()
     headers = auth_headers("api-test")
-    assert health.json()["model"] == "qwen2.5:1.5b"
+    assert health.json()["model"].startswith("deepseek")
     assert health.json()["device_data_mode"] == "simulator"
 
     agents = requests.get(f"{BASE_URL}/agents", timeout=15)
